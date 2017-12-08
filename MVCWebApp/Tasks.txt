@@ -1,0 +1,11 @@
+﻿----------------------------------------------| Task |----------------------------------------------
+
+1) After successfull adding redirect to List for both Student and course.
+2) Display a message when adding is completed successfully through Js in both Student and course.
+3) Add validation for phone number in student. //Done
+4) Add radio button for gender and dropdown list for course selection in create student. //Done
+5) Implement Update for student and course.
+6) Implement Delete with confirmation message for both student and course.
+7) Add new Column in student database table for Date Of Birth.
+8) Add a Jquery date picker for selecting date of birth.
+9) Seperate out the Database operation into a method from controller and call that methods in controllers.
