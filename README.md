@@ -1,2 +1,2 @@
 # MVCApplication
-Student Course MVC App
+Student Course Management MVC App
