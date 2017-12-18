@@ -20,3 +20,25 @@ c:\users\samipmodi\documents\visual studio 2013\Projects\MVCWebApp\MVCWebApp\bin
 c:\users\samipmodi\documents\visual studio 2013\Projects\MVCWebApp\MVCWebApp\bin\EntityFramework.xml
 c:\users\samipmodi\documents\visual studio 2013\Projects\MVCWebApp\MVCWebApp\bin\EntityFramework.SqlServer.xml
 C:\Users\samipmodi\Documents\Visual Studio 2013\Projects\MVCWebApp\MVCWebApp\obj\Debug\MVCWebApp.csprojResolveAssemblyReference.cache
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\MVCWebApp.dll.config
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\MVCWebApp.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\MVCWebApp.pdb
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\EntityFramework.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\EntityFramework.SqlServer.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Helpers.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Mvc.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Razor.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Deployment.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Razor.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\EntityFramework.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\EntityFramework.SqlServer.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Razor.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Deployment.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Razor.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Helpers.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Mvc.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csprojResolveAssemblyReference.cache
+E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.pdb
