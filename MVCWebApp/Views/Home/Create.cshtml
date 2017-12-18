@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm()) 
 {
-    @*@Html.AntiForgeryToken()*@
+    @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <h4>Student</h4>
@@ -51,7 +51,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Course, htmlAttributes: new { @class="control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Course, Enumerable.Empty<SelectListItem>(), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Course, Enumerable.Empty<SelectListItem>(),"--SELECT--",new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
@@ -86,9 +86,30 @@
     });
     function myfunction()
     {
+        debugger
         var Name = $("#Name").val();
         var Address = $("#Address").val();
-        var Gender =$('input[name=]')
-        alert(Name+' '+Address+' '+Gender);
+        var Gender = $('input[name=Gender]:checked').val();
+        var phone = $("#Phone").val();
+        var course = $('#Course option:selected').val();
+        //Using Ajax request call /Home/Create method and insert data in Db 
+        $.ajax({
+            type: "Get",
+            url: "/Home/Add",
+            data:
+                {
+                    Name: Name,
+                    Address: Address,
+                    Gender: Gender,
+                    Phone: phone,
+                    Course:course
+                },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function()
+            {
+                alert('Data Inserted Successful');
+            }
+        });
     }
 </script>
