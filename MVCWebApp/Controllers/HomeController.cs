@@ -35,30 +35,37 @@ namespace MVCWebApp.Controllers
 
         public ActionResult Add(string Name,string Address,string Phone,string Gender,string Course)
         {
-            if (ModelState.IsValid)
+            try
+            {
+                using (var context = new StudentCourseContext())
+                {
+                    Student student = new Student();
+                    student.Name = Name;
+                    student.Address = Address;
+                    student.Phone = Phone;
+                    student.Gender = Gender;
+                    student.CourseId = GetCourseId(Course);
+                    context.Students.Add(student);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            List<Student> studentList = new List<Student>();
+            using (var context = new StudentCourseContext())
             {
                 try
                 {
-                    using (var context = new StudentCourseContext())
-                    {
-                        Student student = new Student();
-                        student.Name = Name;
-                        student.Address = Address;
-                        student.Phone = Phone;
-                        student.Gender = Gender;
-                        student.CourseId= GetCourseId(Course);
-
-                        context.Students.Add(student);
-                        context.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
+                    studentList = context.Students.ToList();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    
+
                 }
             }
-            return View("Create");
+            return RedirectToAction("Index",studentList);
         }
 
         public int GetCourseId(string Course)
