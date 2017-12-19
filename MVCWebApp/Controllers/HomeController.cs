@@ -27,32 +27,49 @@ namespace MVCWebApp.Controllers
             return View(student.ToList());
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
            return View();
         }
-
-        //[HttpPost]
-        /*public ActionResult Create(Student student)
+        
+        [HttpGet]
+        public ActionResult Add(string Name,string Address,string Phone,string Gender,string Course)
         {
-            if (ModelState.IsValid)
+            try
             {
-                try
+                using (var context = new StudentCourseContext())
                 {
-                    using (var context = new StudentCourseContext())
-                    {
-                        student.CourseId = 0;
-                        context.Students.Add(student);
-                        context.SaveChanges();
-                    }
-                }
-                catch (Exception)
-                {
-                    
+                    Student student = new Student();
+                    student.Name = Name;
+                    student.Address = Address;
+                    student.Phone = Phone;
+                    student.Gender = Gender;
+                    student.CourseId = GetCourseId(Course);
+                    context.Students.Add(student);
+                    context.SaveChanges();
                 }
             }
-            return View("Create");
-        }*/
+            catch (Exception ex)
+            {
+
+            }
+            return RedirectToAction("Index");
+        }
+
+        public int GetCourseId(string Course)
+        {
+            using (var context=new StudentCourseContext())
+            {
+                int Id;
+                Id = context.Courses.Where(x => x.Name == Course).Select(x => x.CourseId).First();
+                if (Id < 0)
+                {
+                    Id = 0;
+                }
+                return Id;
+            }
+        }
 
         //Binding Courses name with DropDownList
         public JsonResult BindDropDownList()
