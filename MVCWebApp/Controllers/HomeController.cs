@@ -32,7 +32,8 @@ namespace MVCWebApp.Controllers
         {
            return View();
         }
-
+        
+        [HttpGet]
         public ActionResult Add(string Name,string Address,string Phone,string Gender,string Course)
         {
             try
@@ -53,19 +54,7 @@ namespace MVCWebApp.Controllers
             {
 
             }
-            List<Student> studentList = new List<Student>();
-            using (var context = new StudentCourseContext())
-            {
-                try
-                {
-                    studentList = context.Students.ToList();
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-            return RedirectToAction("Index",studentList);
+            return RedirectToAction("Index");
         }
 
         public int GetCourseId(string Course)

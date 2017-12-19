@@ -57,7 +57,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" id="btnSubmit" value="Create" class="btn btn-default" onclick="myfunction()" />
+                <input type="button" id="btnSubmit" value="Create" class="btn btn-default" onclick="myfunction()" />
             </div>
         </div>
     </div>
@@ -86,7 +86,6 @@
     });
     function myfunction()
     {
-        debugger
         var Name = $("#Name").val();
         var Address = $("#Address").val();
         var Gender = $('input[name=Gender]:checked').val();
@@ -98,8 +97,8 @@
             {
                 //Using Ajax request call /Home/Create method and insert data in Db 
                 $.ajax({
-                    type: "Get",
-                    url: "/Home/Add",
+                    type: 'Get',
+                    url: '/Home/Add',
                     data:
                         {
                             Name: Name,
@@ -108,17 +107,17 @@
                             Phone: phone,
                             Course: course
                         },
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
+                    contentType: 'application/json; charset=utf-8',
                     success: function ()
                     {
-                        alert('Data Inserted Successful');
+                        alert('Student details added successfully');
+                        window.location.href = '/Home/Index';
                     }
                 });
             }
             else
             {
-                alert('Invalid phone number');
+                alert("Invalid phone number");
             }
         }
         else
