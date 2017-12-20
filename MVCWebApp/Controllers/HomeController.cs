@@ -50,9 +50,9 @@ namespace MVCWebApp.Controllers
                     context.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
+                
             }
             return RedirectToAction("Index");
         }

@@ -4,10 +4,80 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Students List</h2>
-<p>
-    @Html.ActionLink("Add New", "Create")
-</p>
+
+@*<p>@Html.ActionLink("Add New", "Create")</p>*@
+<div class="container">
+    <h2>Students List</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add New Student</button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    <h4 class="modal-title">Student details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Name">Name:</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Address:</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="Gender">Gender:</label>
+                        <label><input type="radio" name="rdGender">Female</label>
+                        <label><input type="radio" name="rdGender">Male</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Phone:</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="Course">Course:</label>
+                        <select>
+                            <option>--Select--</option>
+                            <option>SQL CS</option>
+                            <option>SQlite</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-info btn-default pull-left" onclick="myFunction()">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </button>
+                        <button type="button" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="btnClear">
+                            <span class="glyphicon glyphicon-remove"></span> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $('#btnClear').click(function()
+    {
+         $('input[type=text]').each(function()
+         {
+            $(this).val('');
+        });
+    });
+    function myFunction()
+    {
+        var Name=$("#name").val();
+        var Address=$("#address").val();
+        alert(Name);
+    }
+</script>
 <table class="table">
     <tr>
         <th>
