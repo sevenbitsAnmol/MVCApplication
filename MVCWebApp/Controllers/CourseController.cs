@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCWebApp.Models;
+using PagedList;
 
 namespace MVCWebApp.Controllers
 {
     public class CourseController : Controller
     {
         // GET: Course
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             List<Course> course = new List<Course>();
             using (var context = new StudentCourseContext())
@@ -24,7 +25,7 @@ namespace MVCWebApp.Controllers
 
                 }
             }
-            return View(course.ToList());
+            return View(course.ToPagedList(page ?? 1,10));
         }
 
         public ActionResult Create()

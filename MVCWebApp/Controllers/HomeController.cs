@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCWebApp.Models;
+using PagedList;
 
 namespace MVCWebApp.Controllers
 {
     public class HomeController : Controller
     {
         //Return student records
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             List<Student> student = new List<Student>();
             using (var context=new StudentCourseContext())
@@ -24,7 +25,7 @@ namespace MVCWebApp.Controllers
                     
                 }
             }
-            return View(student.ToList());
+            return View(student.ToPagedList(page ?? 1,10));
         }
 
         [HttpGet]
