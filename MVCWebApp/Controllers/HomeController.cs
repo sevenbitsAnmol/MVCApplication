@@ -33,19 +33,13 @@ namespace MVCWebApp.Controllers
            return View();
         }
         
-        [HttpGet]
-        public ActionResult Add(string Name,string Address,string Phone,string Gender,string Course)
+        [HttpPost]
+        public void Add(Student student)
         {
             try
             {
                 using (var context = new StudentCourseContext())
                 {
-                    Student student = new Student();
-                    student.Name = Name;
-                    student.Address = Address;
-                    student.Phone = Phone;
-                    student.Gender = Gender;
-                    student.CourseId = GetCourseId(Course);
                     context.Students.Add(student);
                     context.SaveChanges();
                 }
@@ -54,22 +48,22 @@ namespace MVCWebApp.Controllers
             {
                 
             }
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
         }
 
-        public int GetCourseId(string Course)
-        {
-            using (var context=new StudentCourseContext())
-            {
-                int Id;
-                Id = context.Courses.Where(x => x.Name == Course).Select(x => x.CourseId).First();
-                if (Id < 0)
-                {
-                    Id = 0;
-                }
-                return Id;
-            }
-        }
+        //public int GetCourseId(string Course)
+        //{
+        //    using (var context=new StudentCourseContext())
+        //    {
+        //        int Id;
+        //        Id = context.Courses.Where(x => x.Name == Course).Select(x => x.CourseId).First();
+        //        if (Id < 0)
+        //        {
+        //            Id = 0;
+        //        }
+        //        return Id;
+        //    }
+        //}
 
         //Binding Courses name with DropDownList
         public JsonResult BindDropDownList()
