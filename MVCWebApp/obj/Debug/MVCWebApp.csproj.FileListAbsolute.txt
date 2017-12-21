@@ -42,3 +42,7 @@ E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\System.Web.Mvc.xml
 E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csprojResolveAssemblyReference.cache
 E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.dll
 E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.pdb
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.Mvc.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.xml
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.Mvc.xml

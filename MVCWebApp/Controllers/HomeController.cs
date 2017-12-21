@@ -9,7 +9,7 @@ namespace MVCWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        //Return student records
         public ActionResult Index()
         {
             List<Student> student = new List<Student>();
@@ -33,6 +33,7 @@ namespace MVCWebApp.Controllers
            return View();
         }
         
+        //Insert a new student record
         [HttpPost]
         public void Add(Student student)
         {
@@ -48,22 +49,18 @@ namespace MVCWebApp.Controllers
             {
                 
             }
-            //return RedirectToAction("Index");
         }
 
-        //public int GetCourseId(string Course)
-        //{
-        //    using (var context=new StudentCourseContext())
-        //    {
-        //        int Id;
-        //        Id = context.Courses.Where(x => x.Name == Course).Select(x => x.CourseId).First();
-        //        if (Id < 0)
-        //        {
-        //            Id = 0;
-        //        }
-        //        return Id;
-        //    }
-        //}
+        //Load student records
+        public JsonResult LoadStudentList()
+        {
+            List<Student> StudentList = new List<Student>();
+            using (var context=new StudentCourseContext())
+            {
+                StudentList = context.Students.ToList();
+            }
+            return Json(StudentList,JsonRequestBehavior.AllowGet);
+        }
 
         //Binding Courses name with DropDownList
         public JsonResult BindDropDownList()
