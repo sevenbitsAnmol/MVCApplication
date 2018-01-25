@@ -1,0 +1,193 @@
+﻿@*<script type="text/javascript">
+    //function ClearText()
+    //{
+    //    $('input[type=text]').each(function ()
+    //    {
+    //        $(this).val('');
+    //    });
+    //    $("#ddlCourse").val('--SELECT--'); // Select first option
+    //}
+
+    //function Validate()
+    //{
+    //    var Name = $("#name").val();
+    //    var Address = $("#address").val();
+    //    var Gender = $("input[name='rdGender']:checked").val();
+    //    var Phone = $("#phone").val();
+    //    var course = $('#ddlCourse option:selected').val();
+    //    if (Name != "" && Address != "" && Gender != "" && course!=0)
+    //    {
+    //        if (Phone.length == 10)
+    //        {
+    //            return true;
+    //        }
+    //        else
+    //        {
+    //            alert('Invalid phone number');
+    //        }
+    //    }
+    //    else
+    //    {
+    //        alert('Please enter all details');
+    //        return false;
+    //    }
+        
+    //}
+
+    //function AddRecord()
+    //{
+    //    var empObj =
+    //       {
+    //           CourseID: $('#ddlCourse option:selected').val(),
+    //           Name: $("#name").val(),
+    //           Address: $("#address").val(),
+    //           Gender: $("input[name='rdGender']:checked").val(),
+    //           Phone: $("#phone").val(),
+    //       };
+    //    //Using Ajax request call /Home/Add method and insert data in Db
+    //    $.ajax({
+    //        type: 'Post',
+    //        url: '/Home/Add',
+    //        data: JSON.stringify(empObj),
+    //        contentType: "application/json; charset=utf-8",
+    //        success: function ()
+    //        {
+    //            alert("Student details added successfully");
+    //            window.location.href = "/Home/Index";
+    //        },
+    //        error: function ()
+    //        {
+    //            alert("Some error occured while adding record.");
+    //            $('#myModal').modal('hide');
+    //        }
+
+    //    });
+    //}
+
+    //function LoadRecords()
+    //{
+    //    $.ajax({
+    //        type: 'Get',
+    //        url: '/Home/Index',
+    //        contentType: "application/json; charset=utf-8",
+    //        success: function ()
+    //        {
+    //            $('#myModal').modal('hide');
+    //        },
+    //        error: function ()
+    //        {
+    //            $('#myModal').modal('hide');
+    //        }
+    //    });
+    //}
+
+    //$("#btnAdd").click(function ()
+    //{
+    //    if (Validate())
+    //    {
+    //        AddRecord();
+    //    }
+    //});
+
+    //$("#btnClear").click(function ()
+    //{
+    //    ClearText();
+    //});
+</script>*@
+
+
+//$.getJSON("/Home/BindDropDownList", function (data)
+//{
+//    $.each(data, function (i, data)
+//    {
+//        //Binding Course name with DropDownList
+//        $('<option>',
+//            {
+//                value: data.CourseId,
+//                text: data.Name
+//            }).html(data.Name).appendTo("#ddlCourse");
+//    });
+//});
+
+
+@*<script type="text/javascript">
+
+    function ClearText()
+    {
+        $('input[type=text]').each(function ()
+        {
+            $(this).val('');
+        });
+    }
+
+    function Validate()
+    {
+        var Name = $("#name").val();
+        if (Name != "")
+        {
+            return true;
+        }
+        else
+        {
+            alert('Please enter name for Course');
+            return false;
+        }
+
+    }
+
+    function AddRecord()
+    {
+        var empObj =
+           {
+               Name: $("#name").val(),
+           };
+        //Using Ajax request call /Home/Add method and insert data in Db
+        $.ajax({
+            type: 'Post',
+            url: '/Course/Create',
+            data: JSON.stringify(empObj),
+            contentType: "application/json; charset=utf-8",
+            success: function ()
+            {
+                alert("Course details added successfully");
+                window.location.href = "/Course/Index";
+            },
+            error: function ()
+            {
+                alert("Some error occured while adding record.");
+                $('#myModal').modal('hide');
+            }
+
+        });
+    }
+
+    function LoadRecords()
+    {
+        $.ajax({
+            type: 'Get',
+            url: '/Course/Index',
+            contentType: "application/json; charset=utf-8",
+            success: function ()
+            {
+                $('#myModal').modal('hide');
+            },
+            error: function ()
+            {
+                $('#myModal').modal('hide');
+            }
+        });
+    }
+
+    $("#btnAdd").click(function ()
+    {
+        if (Validate())
+        {
+            AddRecord();
+        }
+    });
+
+    $("#btnClear").click(function ()
+    {
+        ClearText();
+    });
+</script>*@
