@@ -10,7 +10,9 @@
 <div class="container">
     <h2>Course List</h2>
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="btnOpenAdd">Add New Course</button>
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id="btnOpenAdd">
+        <span class="glyphicon glyphicon-plus"></span>Add New Course
+    </button>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -22,6 +24,14 @@
                     <h4 class="modal-title">Student details</h4>
                 </div>
                 <div class="modal-body">
+                    <div id="SuccessAlert" class="alert alert-success" hidden="hidden">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Thank you!</strong> Your New Course has been submitted.
+                    </div>
+                    <div id="ErrorAlert" class="alert alert-danger" hidden="hidden">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>Please Enter Name</strong>
+                    </div>
                     <div class="form-group">
                         <label for="Name">Name:</label>
                         <input type="text" class="form-control" id="name">
@@ -42,6 +52,7 @@
         </div>
     </div>
 </div>
+<br/>
     <table class="table">
         <tr>
             <th>
@@ -67,84 +78,5 @@
     </table>
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
-<script type="text/javascript">
 
-    function ClearText()
-    {
-        $('input[type=text]').each(function ()
-        {
-            $(this).val('');
-        });
-    }
-
-    function Validate()
-    {
-        var Name = $("#name").val();
-        if (Name != "")
-        {
-            return true;
-        }
-        else
-        {
-            alert('Please enter name for Course');
-            return false;
-        }
-
-    }
-
-    function AddRecord()
-    {
-        var empObj =
-           {
-               Name: $("#name").val(),
-           };
-        //Using Ajax request call /Home/Add method and insert data in Db
-        $.ajax({
-            type: 'Post',
-            url: '/Course/Create',
-            data: JSON.stringify(empObj),
-            contentType: "application/json; charset=utf-8",
-            success: function ()
-            {
-                alert("Course details added successfully");
-                window.location.href = "/Course/Index";
-            },
-            error: function ()
-            {
-                alert("Some error occured while adding record.");
-                $('#myModal').modal('hide');
-            }
-
-        });
-    }
-
-    function LoadRecords()
-    {
-        $.ajax({
-            type: 'Get',
-            url: '/Course/Index',
-            contentType: "application/json; charset=utf-8",
-            success: function ()
-            {
-                $('#myModal').modal('hide');
-            },
-            error: function ()
-            {
-                $('#myModal').modal('hide');
-            }
-        });
-    }
-
-    $("#btnAdd").click(function ()
-    {
-        if (Validate())
-        {
-            AddRecord();
-        }
-    });
-
-    $("#btnClear").click(function ()
-    {
-        ClearText();
-    });
-</script>
+<script src="~/Scripts/CourseScript.js"></script>

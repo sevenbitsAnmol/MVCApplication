@@ -18,7 +18,7 @@ namespace MVCWebApp.Controllers
             {
                 try
                 {
-                    course = context.Courses.ToList();
+                    course = context.Courses.OrderByDescending(x=>x.CourseId).ToList();
                 }
                 catch (Exception)
                 {

@@ -9,12 +9,14 @@
 @*<p>@Html.ActionLink("Add New", "Create")</p>*@
 <div class="container">
     <h2>Students List</h2>
+
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="btnOpenAdd">Add New Student</button>
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" id="btnOpenAdd">
+        <span class="glyphicon glyphicon-plus"></span>Add New Student
+    </button>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,6 +24,18 @@
                     <h4 class="modal-title">Student details</h4>
                 </div>
                 <div class="modal-body">
+                    <div id="SuccessAlert" class="alert alert-success" hidden="hidden">
+                        @*<button type="button" class="close" data-dismiss="alert">&times;</button>*@ 
+                        <strong>Thank you!</strong> Your Details has been submitted.
+                    </div>
+                    <div id="ErrorAlert" class="alert alert-danger" hidden="hidden">
+                        @*<button type="button" class="close" data-dismiss="alert">&times;</button>*@
+                        <strong>Please Enter All Details</strong>
+                    </div>
+                    <div id="InvalidPhoneAlert" class="alert alert-danger" hidden="hidden">
+                        @*<button type="button" class="close" data-dismiss="alert">&times;</button>*@
+                        <strong>Please Enter Valid Phone no.</strong>
+                    </div>
                     <div class="form-group">
                         <label for="Name">Name:</label>
                         <input type="text" class="form-control" id="name">
@@ -62,7 +76,7 @@
     </div>
 
 </div>
-
+<br/>
 <table class="table">
     <tr>
         <th>
@@ -96,7 +110,7 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
@@ -129,117 +143,10 @@
     $(document).ready(function ()
     {
         //Calling method to get Json data
+        //$("#SuccessAlert").hide();
+        //$("#ErrorAlert").hide();
+        //$("#InvalidPhoneAlert").hide();
         BindDropDownlist();
-
-        //$.getJSON("/Home/BindDropDownList", function (data)
-        //{
-        //    $.each(data, function (i, data)
-        //    {
-        //        //Binding Course name with DropDownList
-        //        $('<option>',
-        //            {
-        //                value: data.CourseId,
-        //                text: data.Name
-        //            }).html(data.Name).appendTo("#ddlCourse");
-        //    });
-        //});
     });
 </script>
-
-<script type="text/javascript">
-
-    function ClearText()
-    {
-        $('input[type=text]').each(function ()
-        {
-            $(this).val('');
-        });
-        $("#ddlCourse").val('--SELECT--'); // Select first option
-    }
-
-    function Validate()
-    {
-        var Name = $("#name").val();
-        var Address = $("#address").val();
-        var Gender = $("input[name='rdGender']:checked").val();
-        var Phone = $("#phone").val();
-        var course = $('#ddlCourse option:selected').val();
-        if (Name != "" && Address != "" && Gender != "" && course!=0)
-        {
-            if (Phone.length == 10)
-            {
-                return true;
-            }
-            else
-            {
-                alert('Invalid phone number');
-            }
-        }
-        else
-        {
-            alert('Please enter all details');
-            return false;
-        }
-        
-    }
-
-    function AddRecord()
-    {
-        var empObj =
-           {
-               CourseID: $('#ddlCourse option:selected').val(),
-               Name: $("#name").val(),
-               Address: $("#address").val(),
-               Gender: $("input[name='rdGender']:checked").val(),
-               Phone: $("#phone").val(),
-           };
-        //Using Ajax request call /Home/Add method and insert data in Db
-        $.ajax({
-            type: 'Post',
-            url: '/Home/Add',
-            data: JSON.stringify(empObj),
-            contentType: "application/json; charset=utf-8",
-            success: function ()
-            {
-                alert("Student details added successfully");
-                window.location.href = "/Home/Index";
-            },
-            error: function ()
-            {
-                alert("Some error occured while adding record.");
-                $('#myModal').modal('hide');
-            }
-
-        });
-    }
-
-    function LoadRecords()
-    {
-        $.ajax({
-            type: 'Get',
-            url: '/Home/Index',
-            contentType: "application/json; charset=utf-8",
-            success: function ()
-            {
-                $('#myModal').modal('hide');
-            },
-            error: function ()
-            {
-                $('#myModal').modal('hide');
-            }
-        });
-    }
-
-    $("#btnAdd").click(function ()
-    {
-        if (Validate())
-        {
-            AddRecord();
-        }
-    });
-
-    $("#btnClear").click(function ()
-    {
-        ClearText();
-    });
-</script>
+<script src="~/Scripts/StudentScript.js"></script>
