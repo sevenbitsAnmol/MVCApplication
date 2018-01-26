@@ -64,6 +64,24 @@ function LoadRecords()
     });
 }
 
+function EditCourse(id)
+{
+    alert(id);
+    //Get the details of the Course from selected Course name
+    //$.ajax({
+    //    type: 'Get',
+    //    url: '/Course/GetCourse',
+    //    contentType: "application/json; charset=utf-8",
+    //    success: function ()
+    //    {
+    //        $('#myModal').modal('show');
+    //    },
+    //    error: function () {
+    //        $('#myModal').modal('hide');
+    //    }
+    //});
+}
+
 $("#btnAdd").click(function ()
 {
     if (Validate())

@@ -52,7 +52,8 @@ function AddRecord()
         contentType: "application/json; charset=utf-8",
         success: function ()
         {
-            alert("Student details added successfully");
+            //alert("Student details added successfully");
+            $("#SuccessAlert").fadeOut(3500);
             window.location.href = "/Home/Index";
         },
         error: function ()
@@ -78,6 +79,31 @@ function LoadRecords()
             $('#myModal').modal('hide');
         }
     });
+}
+
+function EditStudent(id)
+{
+    alert(id);
+
+    //Using Ajax request call /Home/GetStudent method and insert data in Db
+    //$.ajax({
+    //    type: 'Get',
+    //    url: '/Home/GetStudent',
+    //    data: JSON.stringify(empObj),
+    //    contentType: "application/json; charset=utf-8",
+    //    success: function ()
+    //    {
+    //        //alert("Student details added successfully");
+    //        $("#SuccessAlert").fadeOut(3500);
+    //        alert(id);
+    //    },
+    //    error: function ()
+    //    {
+    //        alert("Some error occured while adding record.");
+    //        $('#myModal').modal('hide');
+    //        return false;
+    //    }
+    //});
 }
 
 $("#btnAdd").click(function ()
