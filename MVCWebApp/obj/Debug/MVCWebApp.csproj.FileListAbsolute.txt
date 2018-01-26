@@ -46,3 +46,30 @@ E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.dll
 E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.Mvc.dll
 E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.xml
 E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\PagedList.Mvc.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\MVCWebApp.dll.config
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\MVCWebApp.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\MVCWebApp.pdb
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\EntityFramework.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\EntityFramework.SqlServer.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\Microsoft.Web.Infrastructure.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\PagedList.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\PagedList.Mvc.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Helpers.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Mvc.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Razor.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Deployment.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Razor.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\EntityFramework.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\EntityFramework.SqlServer.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\PagedList.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\PagedList.Mvc.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Razor.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Deployment.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Webpages.Razor.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Helpers.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Mvc.xml
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csprojResolveAssemblyReference.cache
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.dll
+E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.pdb
