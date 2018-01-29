@@ -83,27 +83,26 @@ function LoadRecords()
 
 function EditStudent(id)
 {
-    alert(id);
-
+    console.log(id);
     //Using Ajax request call /Home/GetStudent method and insert data in Db
-    //$.ajax({
-    //    type: 'Get',
-    //    url: '/Home/GetStudent',
-    //    data: JSON.stringify(empObj),
-    //    contentType: "application/json; charset=utf-8",
-    //    success: function ()
-    //    {
-    //        //alert("Student details added successfully");
-    //        $("#SuccessAlert").fadeOut(3500);
-    //        alert(id);
-    //    },
-    //    error: function ()
-    //    {
-    //        alert("Some error occured while adding record.");
-    //        $('#myModal').modal('hide');
-    //        return false;
-    //    }
-    //});
+    $.ajax({
+        type: 'Get',
+        url: '/Home/GetStudent',
+        data: id,
+        contentType: "application/json; charset=utf-8",
+        success: function (data)
+        {
+            //alert("Student details added successfully");
+            $("#SuccessAlert").show();
+            console.log(data);
+        },
+        error: function ()
+        {
+            console.log("Some error occured while adding record.");
+            $('#myModal').modal('hide');
+            return false;
+        }
+    });
 }
 
 $("#btnAdd").click(function ()

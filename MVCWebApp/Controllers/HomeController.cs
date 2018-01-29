@@ -73,5 +73,22 @@ namespace MVCWebApp.Controllers
             }
             return Json(Courselist, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetStudent(int Id)
+        {
+            if (Id==0 || Id==null)
+            {
+                return null;
+            }
+            else
+            {
+                List<Student> StudentRecord = new List<Student>();
+                using (var context = new StudentCourseContext())
+                {
+                    StudentRecord = context.Students.Where(x => x.Id == Id).ToList();
+                }
+                return Json(StudentRecord, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }
