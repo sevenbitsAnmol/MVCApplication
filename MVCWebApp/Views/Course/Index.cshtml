@@ -42,6 +42,9 @@
                         <button type="button" class="btn btn-info btn-default pull-left" id="btnAdd">
                             <span class="glyphicon glyphicon-plus"></span> Add
                         </button>
+                        <button type="button" class="btn btn-info btn-default pull-left" id="btnUpdate" hidden="hidden">
+                            <span class="glyphicon glyphicon-edit"></span> Update
+                        </button>
                         <button type="button" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="btnClear">
                             <span class="glyphicon glyphicon-remove"></span> Cancel
                         </button>
@@ -68,7 +71,7 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { Id = item.CourseId },new { onclick=String.Format("EditCourse({0}); return false;",item.Id)}) |
+                    @Html.ActionLink("Edit", "Edit", "Home", new { Id = item.CourseId }, new { onclick = String.Format("EditCourse({0}); return false;", item.CourseId) }) |
                     @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
                 </td>

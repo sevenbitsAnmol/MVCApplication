@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Course">Course:</label>
-                        <select id="ddlCourse">
+                        <select id="ddlCourse" name="DdlCourse">
                             <option>--SELECT--</option>
                         </select>
                     </div>
@@ -64,6 +64,9 @@
                     <div class="form-group">
                         <button type="button" class="btn btn-info btn-default pull-left" id="btnAdd">
                             <span class="glyphicon glyphicon-plus"></span> Add
+                        </button>
+                        <button type="button" class="btn btn-info btn-default pull-left" id="btnUpdate" hidden="hidden">
+                            <span class="glyphicon glyphicon-edit"></span> Update
                         </button>
                         <button type="button" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="btnClear">
                             <span class="glyphicon glyphicon-remove"></span> Cancel
@@ -146,6 +149,8 @@
         //$("#SuccessAlert").hide();
         //$("#ErrorAlert").hide();
         //$("#InvalidPhoneAlert").hide();
+        $('#btnAdd').show();
+        $('#btnUpdate').hide();
         BindDropDownlist();
     });
 </script>
