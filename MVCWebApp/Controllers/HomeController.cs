@@ -14,7 +14,7 @@ namespace MVCWebApp.Controllers
         public ActionResult Index(int? page)
         {
             List<Student> student = new List<Student>();
-            using (var context=new StudentCourseContext())
+            using (var context=new StudentCourseContext1())
             {
                 try
                 {
@@ -40,7 +40,7 @@ namespace MVCWebApp.Controllers
         {
             try
             {
-                using (var context = new StudentCourseContext())
+                using (var context = new StudentCourseContext1())
                 {
                     context.Students.Add(student);
                     context.SaveChanges();
@@ -56,7 +56,7 @@ namespace MVCWebApp.Controllers
         public JsonResult LoadStudentList()
         {
             List<Student> StudentList = new List<Student>();
-            using (var context=new StudentCourseContext())
+            using (var context=new StudentCourseContext1())
             {
                 StudentList = context.Students.ToList();
             }
@@ -67,11 +67,29 @@ namespace MVCWebApp.Controllers
         public JsonResult BindDropDownList()
         {
             List<Course> Courselist = new List<Course>();
-            using (var context = new StudentCourseContext())
+            using (var context = new StudentCourseContext1())
             {
                 Courselist = context.Courses.ToList();
             }
             return Json(Courselist, JsonRequestBehavior.AllowGet);
+        }
+
+        //[HttpPost]
+        public JsonResult GetStudent(int Id)
+        {
+            if (Id==0)
+            {
+                return null;
+            }
+            else
+            {
+                List<Student> StudentRecord = new List<Student>();
+                using (var context = new StudentCourseContext1())
+                {
+                    StudentRecord = context.Students.Where(x => x.Id == Id).ToList();
+                }
+                return Json(StudentRecord, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

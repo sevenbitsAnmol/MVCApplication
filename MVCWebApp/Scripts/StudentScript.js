@@ -44,6 +44,7 @@ function AddRecord()
            Gender: $("input[name='rdGender']:checked").val(),
            Phone: $("#phone").val(),
        };
+    
     //Using Ajax request call /Home/Add method and insert data in Db
     $.ajax({
         type: 'Post',
@@ -83,27 +84,31 @@ function LoadRecords()
 
 function EditStudent(id)
 {
-    alert(id);
-
-    //Using Ajax request call /Home/GetStudent method and insert data in Db
-    //$.ajax({
-    //    type: 'Get',
-    //    url: '/Home/GetStudent',
-    //    data: JSON.stringify(empObj),
-    //    contentType: "application/json; charset=utf-8",
-    //    success: function ()
-    //    {
-    //        //alert("Student details added successfully");
-    //        $("#SuccessAlert").fadeOut(3500);
-    //        alert(id);
-    //    },
-    //    error: function ()
-    //    {
-    //        alert("Some error occured while adding record.");
-    //        $('#myModal').modal('hide');
-    //        return false;
-    //    }
-    //});
+    console.log(id);
+    var ID = id;
+    //Using Ajax request call /Home/GetStudent method and get Student data from Db
+    $.ajax({
+        type: 'Get',
+        url: '/Home/GetStudent/'+ID,
+        contentType: "application/json; charset=utf-8",
+        success: function (result)
+        {
+            $('#myModal').modal('show');
+            $('#name').val(result[0].Name);
+            $('#address').val(result[0].Address);
+            $('#phone').val(result[0].Phone);
+            $("input[name=rdGender][value=" + result[0].Gender + "]").prop("checked", true);
+            $('select[name="DdlCourse"]').find('option[value="' + result[0].CourseId + '"]').prop("selected", true);
+            $('#btnUpdate').show();
+            $('#btnAdd').hide();
+        },
+        error: function ()
+        {
+            console.log("Some error occured while getting record.");
+            $('#myModal').modal('hide');
+            return false;
+        }
+    });
 }
 
 $("#btnAdd").click(function ()
@@ -112,6 +117,12 @@ $("#btnAdd").click(function ()
     {
         AddRecord();
     }
+});
+
+$('#btnOpenAdd').click(function ()
+{
+    $('#btnUpdate').hide();
+    $('#btnAdd').show();
 });
 
 $("#btnClear").click(function ()

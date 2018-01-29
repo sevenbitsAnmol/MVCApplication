@@ -75,6 +75,8 @@ function EditCourse(id)
     //    success: function ()
     //    {
     //        $('#myModal').modal('show');
+            //$('#btnUpdate').show();
+            //$('#btnAdd').hide();
     //    },
     //    error: function () {
     //        $('#myModal').modal('hide');
@@ -88,6 +90,11 @@ $("#btnAdd").click(function ()
     {
         AddRecord();
     }
+});
+
+$('#btnOpenAdd').click(function () {
+    $('#btnUpdate').hide();
+    $('#btnAdd').show();
 });
 
 $("#btnClear").click(function ()

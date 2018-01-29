@@ -14,7 +14,7 @@ namespace MVCWebApp.Controllers
         public ActionResult Index(int? page)
         {
             List<Course> course = new List<Course>();
-            using (var context = new StudentCourseContext())
+            using (var context = new StudentCourseContext1())
             {
                 try
                 {
@@ -38,7 +38,7 @@ namespace MVCWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var context = new StudentCourseContext())
+                using (var context = new StudentCourseContext1())
                 {
                     context.Courses.Add(course);
                     context.SaveChanges();
