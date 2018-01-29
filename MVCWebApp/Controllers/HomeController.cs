@@ -74,7 +74,6 @@ namespace MVCWebApp.Controllers
             return Json(Courselist, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
         public JsonResult GetStudent(int Id)
         {
             if (Id==0)
