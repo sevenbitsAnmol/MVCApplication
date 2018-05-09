@@ -1,4 +1,4 @@
-﻿@using PagedList.Mvc; 
+﻿@using PagedList.Mvc;
 @model PagedList.IPagedList<MVCWebApp.Models.Student>
 @{
     ViewBag.Title = "Index";
@@ -71,6 +71,7 @@
                         <button type="button" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="btnClear">
                             <span class="glyphicon glyphicon-remove"></span> Cancel
                         </button>
+                        
                     </div>
                 </div>
             </div>
@@ -94,32 +95,35 @@
         <th>
             @Html.DisplayNameFor(model => model.First().Phone)
         </th>
-        <th></th>
+        <th>
+
+        </th>
     </tr>
 
-@foreach (var item in Model) 
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit","Edit","Home", new { Id = item.Id },new { onclick=String.Format("EditStudent({0}); return false;",item.Id)}) |
-            @Html.ActionLink("Details", "Details", new { Id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    <tbody id="tobodyId">
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td colspan="3">
+                @Html.ActionLink("Edit", "Edit", "Home", new { Id = item.Id }, new { onclick = String.Format("EditStudent({0}); return false;", item.Id) }) |
+                @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
 }
-
+    </tbody>
 </table>
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET" }))
 <script type="text/javascript">

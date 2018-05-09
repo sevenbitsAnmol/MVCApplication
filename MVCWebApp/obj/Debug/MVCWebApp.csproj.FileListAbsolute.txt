@@ -73,3 +73,6 @@ E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\bin\System.Web.Mvc.
 E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csprojResolveAssemblyReference.cache
 E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.dll
 E:\Incomplete Projects\MVC Demo Git\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.pdb
+E:\MVCDemoGit\MVCApplication\MVCWebApp\bin\Microsoft.Web.Infrastructure.dll
+E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csproj.CoreCompileInputs.cache
+E:\MVCDemoGit\MVCApplication\MVCWebApp\obj\Debug\MVCWebApp.csproj.CopyComplete
