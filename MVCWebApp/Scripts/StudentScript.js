@@ -73,7 +73,7 @@ function LoadRecords()
         contentType: "application/json; charset=utf-8",
         success: function (data)
         {
-            debugger;
+            //debugger;
             //console.log(data);
             $.each(data, function (index,value)
             {
