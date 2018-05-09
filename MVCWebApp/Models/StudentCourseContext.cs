@@ -6,9 +6,9 @@ using System.Web;
 
 namespace MVCWebApp.Models
 {
-    public class StudentCourseContext1 : DbContext
+    public class StudentCourseContext : DbContext
     {
-        public StudentCourseContext1():base()
+        public StudentCourseContext():base()
         {
 
         }
