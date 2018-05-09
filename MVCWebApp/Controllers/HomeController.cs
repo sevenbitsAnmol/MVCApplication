@@ -14,7 +14,7 @@ namespace MVCWebApp.Controllers
         public ActionResult Index(int? page)
         {
             List<Student> student = new List<Student>();
-            using (var context=new StudentCourseContext1())
+            using (var context=new StudentCourseContext())
             {
                 try
                 {
@@ -40,7 +40,7 @@ namespace MVCWebApp.Controllers
         {
             try
             {
-                using (var context = new StudentCourseContext1())
+                using (var context = new StudentCourseContext())
                 {
                     context.Students.Add(student);
                     context.SaveChanges();
@@ -56,9 +56,9 @@ namespace MVCWebApp.Controllers
         public JsonResult LoadStudentList()
         {
             List<Student> StudentList = new List<Student>();
-            using (var context=new StudentCourseContext1())
+            using (var context=new StudentCourseContext())
             {
-                StudentList = context.Students.ToList();
+                StudentList = context.Students.OrderByDescending(x => x.Id).ToList();
             }
             return Json(StudentList,JsonRequestBehavior.AllowGet);
         }
@@ -67,7 +67,7 @@ namespace MVCWebApp.Controllers
         public JsonResult BindDropDownList()
         {
             List<Course> Courselist = new List<Course>();
-            using (var context = new StudentCourseContext1())
+            using (var context = new StudentCourseContext())
             {
                 Courselist = context.Courses.ToList();
             }
@@ -84,7 +84,7 @@ namespace MVCWebApp.Controllers
             else
             {
                 List<Student> StudentRecord = new List<Student>();
-                using (var context = new StudentCourseContext1())
+                using (var context = new StudentCourseContext())
                 {
                     StudentRecord = context.Students.Where(x => x.Id == Id).ToList();
                 }

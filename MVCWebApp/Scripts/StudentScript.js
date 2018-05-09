@@ -55,7 +55,7 @@ function AddRecord()
         {
             //alert("Student details added successfully");
             $("#SuccessAlert").fadeOut(3500);
-            window.location.href = "/Home/Index";
+            //window.location.href = "/Home/Index";
         },
         error: function ()
         {
@@ -69,10 +69,26 @@ function LoadRecords()
 {
     $.ajax({
         type: 'Get',
-        url: '/Home/Index',
+        url: '/Home/LoadStudentList',
         contentType: "application/json; charset=utf-8",
-        success: function ()
+        success: function (data)
         {
+            /////debugger;///
+            //console.log(data);
+            $.each(data, function (index,value)
+            {
+                console.log(index);
+                $.each(data, function (key, value)
+                {
+                    console.log(value);
+                    var StudentList = "<tr><th>Name</th><th>Address</th><th>Gender</th><th>Phone</th><th></th></tr>" +
+                    "<tr><td>" + data[0] + "</td>" +
+                    "<td>" + data[1] + "</td>" +
+                    "<td>" + data[2] + "</td>" +
+                    "<td>" + value[3] + "</td></tr>"
+                    $('#tblStudent tbody').append(StudentList);
+                });
+            });
             $('#myModal').modal('hide');
         },
         error: function ()
@@ -116,6 +132,7 @@ $("#btnAdd").click(function ()
     if (Validate())
     {
         AddRecord();
+        LoadRecords();
     }
 });
 
