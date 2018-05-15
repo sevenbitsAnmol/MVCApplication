@@ -71,7 +71,7 @@
                         <button type="button" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="btnClear">
                             <span class="glyphicon glyphicon-remove"></span> Cancel
                         </button>
-                        
+                        <input type="hidden" id="Id" name="Id"  />
                     </div>
                 </div>
             </div>
@@ -82,25 +82,26 @@
 </div>
 <br/>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Phone)
-        </th>
-        <th>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Phone)
+            </th>
+            <th>
 
-        </th>
-    </tr>
-
-    <tbody id="tobodyId">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (var item in Model)
     {
         <tr>
@@ -118,8 +119,9 @@
             </td>
             <td colspan="3">
                 @Html.ActionLink("Edit", "Edit", "Home", new { Id = item.Id }, new { onclick = String.Format("EditStudent({0}); return false;", item.Id) }) |
-                @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { Id = item.Id }, new { onclick = String.Format("Student({0}); return false;", item.Id) }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.Hidden("Id",item.Id)
             </td>
         </tr>
 }

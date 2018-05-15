@@ -36,19 +36,22 @@ namespace MVCWebApp.Controllers
         
         //Insert a new student record
         [HttpPost]
-        public void Add(Student student)
+        public JsonResult Add(Student student)
         {
             try
             {
+                //List<Student> StudentList = new List<Student>();
                 using (var context = new StudentCourseContext())
                 {
                     context.Students.Add(student);
                     context.SaveChanges();
+                    var StudentList = LoadStudentList();
+                    return StudentList;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                return Json(ex, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -90,6 +93,37 @@ namespace MVCWebApp.Controllers
                 }
                 return Json(StudentRecord, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public JsonResult Update(Student student)
+        {
+            try
+            {
+                //Update the student details
+                using (var context = new StudentCourseContext())
+                {
+                    Student studentRecord = context.Students.Where(x => x.Id == student.Id).SingleOrDefault();
+                    if (studentRecord!=null)
+                    {
+                        studentRecord.Id = student.Id;
+                        studentRecord.Name = student.Name;
+                        studentRecord.CourseId = student.CourseId;
+                        studentRecord.Address = student.Address;
+                        studentRecord.Gender = student.Gender;
+                        studentRecord.Phone = student.Phone;
+                        //context.Entry(studentRecord).CurrentValues.SetValues(student);
+                        context.SaveChanges();
+                    }
+                }
+                //return the student list in Json format
+                var StudentList = LoadStudentList();
+                return StudentList;
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message,JsonRequestBehavior.AllowGet);
+            }   
         }
     }
 }
